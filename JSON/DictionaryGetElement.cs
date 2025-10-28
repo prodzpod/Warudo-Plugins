@@ -7,7 +7,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "b2dceeb6-c9f9-4b31-9cbb-d4c5ba18ce4b",
     Title = "Dictionary Get Element",
-    Category = "CATEGORY_ARITHMETIC",
+    Category = "JSON",
     Width = 1f
 )]
 public class DictionaryGetElement : Node

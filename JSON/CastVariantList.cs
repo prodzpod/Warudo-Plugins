@@ -9,7 +9,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "2badf022-fd7d-4483-b948-5d90c3f351a3",
     Title = "Cast Variant List",
-    Category = "CATEGORY_ARITHMETIC",
+    Category = "JSON",
     Width = 1f
 )]
 public class CastVariantList : Node

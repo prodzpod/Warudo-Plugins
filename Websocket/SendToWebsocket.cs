@@ -6,7 +6,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "07f78c96-e2b6-4415-a0b0-2e0b77f9800b",
     Title = "Send to Websocket",
-    Category = "CATEGORY_EXTERNAL_INTEGRATION",
+    Category = "Websocket",
     Width = 1f
 )]
 public class SendToWebsocket : Node

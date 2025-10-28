@@ -7,7 +7,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "33aed733-934c-4043-a2bb-addb8f9c7e09",
     Title = "Variant List Get Element",
-    Category = "CATEGORY_ARITHMETIC",
+    Category = "JSON",
     Width = 1f
 )]
 public class VariantListGetElement : Node

@@ -6,7 +6,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "ca39e32b-c220-4aa0-96c9-e5ffe4950234",
     Title = "On WebSocket Disconnected",
-    Category = "CATEGORY_EXTERNAL_INTEGRATION",
+    Category = "Websocket",
     Width = 1f
 )]
 public class OnWebSocketClose : Node

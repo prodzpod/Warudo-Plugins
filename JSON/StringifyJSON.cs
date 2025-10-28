@@ -6,7 +6,7 @@ using Warudo.Core.Graphs;
 [NodeType(
     Id = "f6cea874-8f76-4dea-92b7-00e59de9a7e9",
     Title = "Stringify JSON",
-    Category = "CATEGORY_DATA",
+    Category = "JSON",
     Width = 1f
 )]
 public class StringifyJSON : Node

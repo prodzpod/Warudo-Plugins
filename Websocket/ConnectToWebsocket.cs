@@ -4,7 +4,7 @@ using Warudo.Core.Graphs;
 
 [NodeType(Id = "73b91d73-aa9c-448f-84cd-c90d119645b7", 
     Title = "Connect to WebSocket",
-    Category = "CATEGORY_EXTERNAL_INTEGRATION")]
+    Category = "Websocket")]
 public class ConnectToWebsocket : Node
 {
     [DataInput]
