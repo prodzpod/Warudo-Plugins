@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Authentication;
 using UnityEngine;
 using Warudo.Core;
+using Warudo.Core.Events;
 using WebSocketSharp;
 public class WebsocketManager
 {
@@ -28,9 +29,9 @@ public class WebsocketManager
         }
         // events
         if (node.URL.StartsWith("wss")) ws.SslConfiguration.EnabledSslProtocols = SslProtocols.Tls12;
-        ws.OnOpen += (_, __) => { Context.EventBus.Broadcast(new WebSocketOpenEvent(target)); };
-        ws.OnClose += (_, __) => { Context.EventBus.Broadcast(new WebSocketCloseEvent(target)); };
-        ws.OnMessage += (_, res) => { Context.EventBus.Broadcast(new WebSocketMessageEvent(target, res.Data)); };
+        ws.OnOpen += (_, __) => { EVENTS.Add(new WebSocketOpenEvent(target)); };
+        ws.OnClose += (_, __) => { EVENTS.Add(new WebSocketCloseEvent(target)); };
+        ws.OnMessage += (_, res) => { EVENTS.Add(new WebSocketMessageEvent(target, res.Data)); };
         WebSockets.Add(target, ws);
         ws.Connect();
         // UnityEngine.Debug.Log("Connection Attempted: " + target);
@@ -52,5 +53,16 @@ public class WebsocketManager
     {
         if (!WebSockets.ContainsKey(id)) return;
         WebSockets[id].Send(message);
+    }
+
+    public static List<Event> EVENTS = new();
+    public static void Update()
+    {
+        if (EVENTS.Count == 0) return;
+        var e = EVENTS[0];
+        if (e is WebSocketOpenEvent) Context.EventBus.Broadcast(e as WebSocketOpenEvent);
+        if (e is WebSocketMessageEvent) Context.EventBus.Broadcast(e as WebSocketMessageEvent);
+        if (e is WebSocketCloseEvent) Context.EventBus.Broadcast(e as WebSocketCloseEvent);
+        EVENTS.RemoveAt(0);
     }
 }

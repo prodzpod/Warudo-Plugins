@@ -1,4 +1,5 @@
-﻿using Warudo.Core;
+﻿using UnityEngine;
+using Warudo.Core;
 using Warudo.Core.Attributes;
 using Warudo.Core.Graphs;
 

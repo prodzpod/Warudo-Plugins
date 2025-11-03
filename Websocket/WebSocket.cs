@@ -24,4 +24,10 @@ public class WebSocketPlugin : Plugin {
         Debug.Log("[WS v1.0] initialized");
     }
 
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
+        WebsocketManager.Update();
+    }
+
 }

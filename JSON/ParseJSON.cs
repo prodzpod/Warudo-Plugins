@@ -21,6 +21,7 @@ public class ParseJSON : Node
     {
         base.OnCreate();
         Watch<string>(nameof(Input), (_, str) => {
+            if (str == "") { _output = null; return; }
             str = str.Trim();
             if (str[0] == '[') _output = JArray.Parse(str);
             else _output = JObject.Parse(str);
